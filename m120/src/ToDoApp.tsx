@@ -1,13 +1,29 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom'
+
 import AppLayout from './component/application/AppLayout'
 import ToDoHeader from './component/todo/ToDoHeader'
-import ToDoBody from './component/todo/ToDoBody'
+import ToDoPage from './component/todo/ToDoPage'
+import AboutPage from './component/todo/AboutPage'
+import PageNotFoundPage from './component/todo/PageNotFoundPage'
 
 function ToDoApp() {
+  let body = <PageNotFoundPage />
+  switch (useLocation().pathname) {
+    case '/':
+      body = <ToDoPage />
+      break;
+    case '/todo':
+      body = <ToDoPage />
+      break;
+    case '/about':
+      body = <AboutPage />
+      break;
+  }
   return ( 
       <AppLayout
         header={ <ToDoHeader/> }
-        body={ <ToDoBody/> }
+        body={ body }
       />
   )
 }
