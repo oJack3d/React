@@ -3,14 +3,18 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from "react-router-dom"
-
+import { StoreProvider } from 'easy-peasy'
+import store from './store/StoreModel'
+import {createStore} from 'easy-peasy'
 import ToDoApp from './ToDoApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <ToDoApp />
-    </Router>
+    <StoreProvider store={store} >
+      <Router>
+        <ToDoApp />
+      </Router>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

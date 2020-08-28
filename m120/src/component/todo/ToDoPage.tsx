@@ -1,9 +1,11 @@
 import React from 'react';
+import ToDoContent from './ToDoContent';
+
 // rface :)
 
 const ToDoPage: React.FC = () => {
     return (
-        <h1>gagaBody</h1>
+        <ToDoContent />
     )
 }
 

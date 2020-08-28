@@ -6,8 +6,11 @@ import ToDoHeader from './component/todo/ToDoHeader'
 import ToDoPage from './component/todo/ToDoPage'
 import AboutPage from './component/todo/AboutPage'
 import PageNotFoundPage from './component/todo/PageNotFoundPage'
+import { useToDoInitDataHook } from './model/todo_data_init_hook'
 
 function ToDoApp() {
+  useToDoInitDataHook()
+
   let body = <PageNotFoundPage />
   switch (useLocation().pathname) {
     case '/':
