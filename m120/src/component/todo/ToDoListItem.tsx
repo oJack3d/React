@@ -3,11 +3,9 @@ import { ListItem } from '@material-ui/core'
 
 import ToDo from '../../model/ToDo'
 
-import { useStoreActions } from '../../store/StoreModel'
+import { useStoreActions, useStoreState } from '../../store/StoreModel'
 
 //start gaga imports
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -17,13 +15,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 //end gaga imports
 
 //start gaga style
-const useStyles = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-      maxWidth: 360,
-      backgroundColor: theme.palette.background.paper,
-    },
-  }));
+
 //end gaga style
 
 interface ToDOListItemProps {
@@ -38,8 +30,13 @@ const ToDoListItem:React.FC<ToDOListItemProps> = ({todo}) => {
     const toggleToDo = useStoreActions(
         actions => actions.todoModel.toggleToDo
     )
+    const selectToDo = useStoreState(state => state.todoModel.selectedToDo)
+    const setSelectedToDo = useStoreActions(actions => actions.todoModel.setSelectedToDo)
     return (
-        <ListItem key={todo.id} role={undefined} dense button>
+        <ListItem
+        key={todo.id}
+        selected={todo.id === selectToDo.id}
+        role={undefined} dense button>
             <ListItemIcon>
                 <Checkbox
                     edge="start"
@@ -50,6 +47,7 @@ const ToDoListItem:React.FC<ToDOListItemProps> = ({todo}) => {
             </ListItemIcon>
             <ListItemText 
                 primary={todo.title} 
+                onClick={() => {setSelectedToDo(todo) }}
             />
             <ListItemSecondaryAction>
                 <IconButton 

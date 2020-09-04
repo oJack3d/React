@@ -1,8 +1,15 @@
 import React from 'react'
+import NewToDo from './NewToDo'
+import EditToDo from './EditToDo'
 
-const ToDoView: React.FC = () => {
+interface ToDoViewProps {}
+
+const ToDoView: React.FC<ToDoViewProps> = () => {
     return (
-        <h1>ToDoView</h1>
+        <div>
+            <NewToDo />
+            <EditToDo />
+        </div>
     )
 }
 
