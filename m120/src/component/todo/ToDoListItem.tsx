@@ -35,7 +35,7 @@ const ToDoListItem:React.FC<ToDOListItemProps> = ({todo}) => {
     return (
         <ListItem
         key={todo.id}
-        selected={todo.id === selectToDo.id}
+        selected={ selectToDo ? todo.id === selectToDo.id :false}
         role={undefined} dense button>
             <ListItemIcon>
                 <Checkbox

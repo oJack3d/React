@@ -15,8 +15,7 @@ const EditTodo: React.FC<EditTodoProps> = (props) => {
     //var existingTodo = new ToDoImpl('I\'m an existing todo')
     const selecedtToDo = useStoreState(state => state.todoModel.selectedToDo)
     const modifyToDo = useStoreActions(actions => (actions.todoModel.modifyToDo))
-
-
+    if (!selecedtToDo) return null
     return (
         <Grid container direction='column' spacing={1}>
             <Grid>

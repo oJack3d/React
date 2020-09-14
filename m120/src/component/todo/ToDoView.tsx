@@ -1,6 +1,7 @@
 import React from 'react'
 import NewToDo from './NewToDo'
 import EditToDo from './EditToDo'
+import CountTodo from './ToDoCount'
 
 interface ToDoViewProps {}
 

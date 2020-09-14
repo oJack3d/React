@@ -1,5 +1,7 @@
 import { createStore, createTypedHooks } from 'easy-peasy'
-import { ToDoModel, toDoModel } from '../model/toDo_model'
+//import { ToDoModel, toDoModel } from '../model/toDo_model'
+import { ToDoModel, toDoModel } from '../model/ToDo_model_remote'
+
 
 // StoreModel may contain several Models
 interface StoreModel {
